@@ -1,0 +1,1311 @@
+/* ============================================
+   TABLE OF CONTENTS
+   ============================================
+   1. Lenis Smooth Scroll
+   2. Base Resets & Performance
+   3. Logo & SVG Optimization
+   4. Layout & Entrance Animations
+   5. Typography & Text Styles
+   6. Number Counter Components
+   7. Interactive Elements
+   8. Swiper Components
+   9. Safari-Specific Fixes
+   10. Animation Utilities
+   ============================================ */
+
+/* ============================================
+   1. LENIS SMOOTH SCROLL
+   ============================================ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ============================================
+   2. BASE RESETS & PERFORMANCE
+   ============================================ */
+.nesh-logo,
+.nesh-logo svg,
+.nav-logo-item,
+.nesh-copyright-icon,
+.nav-button,
+.hero-cta-button,
+.nav-button-secondary,
+.hero-button {
+  shape-rendering: geometricPrecision !important;
+  will-change: width, height, transform !important;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+}
+
+.nav-logo-item {
+  position: relative !important;
+}
+
+/* ============================================
+   3. LOGO & SVG OPTIMIZATION
+   ============================================ */
+.nesh-logo-svg {
+  shape-rendering: geometricPrecision;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* ============================================
+   4. LAYOUT & ENTRANCE ANIMATIONS
+   ============================================ */
+/* Hide entrance elements initially */
+.profile-img-item,
+.hero-navigation-link,
+.hero-navigation-sep,
+.hero-card-3,
+.hero-cards-left,
+.hero-left-text,
+.hero-right-text,
+.hero-buttons-wrap {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hero-heading {
+  visibility: hidden;
+}
+
+/* Design mode fallback (Webflow editor only) */
+.wf-design-mode .profile-img-item,
+.wf-design-mode .hero-navigation-link,
+.wf-design-mode .hero-navigation-sep,
+.wf-design-mode .hero-card-3,
+.wf-design-mode .hero-cards-left,
+.wf-design-mode .hero-left-text,
+.wf-design-mode .hero-right-text,
+.wf-design-mode .hero-buttons-wrap {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wf-design-mode .hero-heading {
+  visibility: visible;
+}
+
+
+/* Line mask for text animations */
+.line-mask {
+  overflow: hidden;
+  display: block;
+  padding-top: 0.1em;
+  margin-top: -0.1em;
+  padding-bottom: 0.05em;
+  margin-bottom: -0.05em;
+}
+
+/* ============================================
+   5. TYPOGRAPHY & TEXT STYLES
+   ============================================ */
+.hero-content-layout {
+  position: absolute !important;
+  inset: auto 0% 0% !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+  z-index: 35 !important;
+}
+
+/* Hero Right Column Layout */
+.hero-right-col {
+  z-index: 35 !important;
+  pointer-events: auto !important;
+  width: clamp(260px, 24vw, 370px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.5vw;
+  position: relative;
+  margin-left: auto;
+  text-align: left;
+}
+
+/* Hero Right Traits Card (Creative, Reliable, Strategist...) */
+.hero-card-3 {
+  inset: -45% -110px auto auto !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  z-index: 35 !important;
+  pointer-events: auto !important;
+}
+
+/* Left Hero Cards Container: shifted left so Moin's shoulder never touches it */
+.hero-cards-left {
+  transform: translateX(-85px) !important;
+  z-index: 35 !important;
+  pointer-events: auto !important;
+}
+
+/* Experience Card: spacious and never clipped */
+.hero-card-1-wrap {
+  left: 0px !important;
+  right: auto !important;
+  width: auto !important;
+  min-width: 180px !important;
+}
+
+.hero-card-1 {
+  width: auto !important;
+  min-width: 180px !important;
+  padding: 16px 22px !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+.hero-card-2 {
+  min-width: 180px !important;
+  box-sizing: border-box !important;
+}
+
+.hero-heading {
+  color: #000000 !important;
+  font-family: "Tr 3 A", Arial, sans-serif !important;
+  font-size: clamp(1.1rem, 1.42vw, 1.75rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  letter-spacing: -0.02em !important;
+  text-align: left !important;
+  kerning: none;
+  overflow: visible !important;
+}
+
+.hero-heading .line {
+  color: #000000 !important;
+  font-family: "Tr 3 A", Arial, sans-serif !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
+  line-height: 1.2 !important;
+  padding-top: 0.08em !important;
+  padding-bottom: 0.04em !important;
+  overflow: visible !important;
+}
+
+.hero-right-text {
+  z-index: 10;
+  pointer-events: auto;
+  width: 100% !important;
+  margin: 0 !important;
+  position: relative;
+  text-align: left;
+  font-size: clamp(0.75rem, 0.95vw, 1.15rem) !important;
+  line-height: 1.45 !important;
+}
+
+@media screen and (max-width: 991px) {
+  .hero-right-col {
+    width: 100%;
+    max-width: 440px;
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+  .hero-heading,
+  .hero-heading .line {
+    white-space: normal !important;
+    font-size: clamp(1.25rem, 3.8vw, 1.85rem) !important;
+  }
+}
+
+.hero-buttons-wrap {
+  overflow: visible !important;
+}
+
+.hero-cta-button,
+.hero-button {
+  font-family: "Tr 3 A", Arial, sans-serif !important;
+  font-size: clamp(.75rem, 1.18vw, 1.5rem) !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  color: #000 !important;
+  pointer-events: auto !important;
+  overflow: visible !important;
+  padding: clamp(.5rem, .695vw, 1.25rem) 1.6vw !important;
+  box-sizing: border-box !important;
+}
+
+.hero-cta-button .button-text,
+.hero-button .button-text,
+.button-text {
+  width: auto !important;
+  white-space: nowrap !important;
+  padding-left: 0.4vw !important;
+  padding-right: 0.4vw !important;
+  overflow: visible !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+.hero-webflow-projects-text,
+.nav-webflow-text {
+  line-height: 1.1 !important;
+}
+
+.nav-webflow-text {
+  display: block;
+}
+
+/* Gradient text styles */
+.h2-style {
+  background: linear-gradient(266deg, #3d3d3d 11.86%, #000 92.59%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.h2-style .line {
+  background: linear-gradient(266deg, #3d3d3d 11.86%, #000 92.59%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.h2-style-white {
+  background: linear-gradient(89deg, #d5d5d5 7.42%, #fff 95.11%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.h2-style-white .line {
+  background: linear-gradient(89deg, #d5d5d5 7.42%, #fff 95.11%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-color-white {
+  color: white !important;
+}
+
+/* ============================================
+   6. NUMBER COUNTER COMPONENTS
+   ============================================ */
+[data-number-count] {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+.number-wrap {
+  display: inline-flex;
+  line-height: 1;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.digit-mask {
+  position: relative;
+  overflow: hidden;
+  height: 1em;
+  width: 0.65em;
+  display: block;
+}
+
+.digit-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.digit-track span {
+  display: block;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+}
+
+/* ============================================
+   7. INTERACTIVE ELEMENTS
+   ============================================ */
+.work-card:hover {
+  opacity: 1;
+}
+
+@media (min-width: 992px) {
+  .work-track:hover .work-card .work-image-overlay {
+    opacity: 1 !important;
+  }
+  .work-track:hover .work-card:hover .work-image-overlay {
+    opacity: 0 !important;
+  }
+  .work-track:hover .work-card .work-card-arrow-wrap {
+    background-color: #2F2F2F !important;
+    color: #8C8C8C !important;
+  }
+  .work-track:hover .work-card:hover .work-card-arrow-wrap {
+    background-color: #ffffff !important;
+    color: black !important;
+  }
+}
+
+.nav-comapny-item {
+  display: inline-flex;
+  flex-shrink: 0;
+  animation: marquee-move 25s linear infinite;
+}
+
+.nav-email-item:hover .email-text,
+.nav-email-item:hover .clipboard-wrap {
+  opacity: 0.35;
+}
+
+/* ============================================
+   8. SWIPER COMPONENTS
+   ============================================ */
+.swiper {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  overflow: visible !important;
+}
+
+.swiper-pagination {
+  width: auto !important;
+  display: flex;
+  margin-bottom: 1.67vw;
+  padding: 0.69vw;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.56vw;
+  position: relative !important;
+}
+
+.swiper-bullet.is-active {
+  width: 2.5vw;
+  background-color: #ffffff;
+}
+
+.swiper-wrapper {
+  cursor: none !important;
+}
+
+/* ============================================
+   9. SAFARI-SPECIFIC FIXES
+   ============================================ */
+[data-tl-to*="blur"] {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  will-change: filter, transform, opacity;
+}
+
+.hero-profile-img {
+  -webkit-transform: translateZ(0) scale(1.001);
+  transform: translateZ(0) scale(1.001);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: filter;
+}
+
+/* ============================================
+   10. ANIMATION UTILITIES
+   ============================================ */
+.anim-char {
+  transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.capa-card-item:hover .capa-card-arrow {
+  rotate: 180deg;
+}
+
+.hero-navigation-link.w--current,
+.nav-link.w--current ~ .hero-navigation-link,
+.nav-menu-item.is-current .hero-navigation-link,
+.nav-menu-item.is-current .nav-link-mask-inner {
+  color: black !important;
+}
+
+.hero-navigation-link.w--current ~ .nav-item-bg,
+.nav-link.w--current ~ .nav-item-bg,
+.nav-menu-item.is-current .nav-item-bg {
+  background-color: #ffffff !important;
+}
+
+.hero-navigation-link.w--current ~ .nav-item-icon,
+.nav-link.w--current ~ .nav-item-icon,
+.nav-menu-item.is-current .nav-item-icon {
+  color: black !important;
+}
+
+/* Popup card active state */
+.popup-card-wrap.is-active-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  clip-path: inset(0%) !important;
+  grid-template-rows: 1fr !important;
+  transform: scale(1.02) !important;
+}
+
+
+.faq-list.w--open .faq-answer-wrap {
+  grid-template-rows: 1fr;
+}
+
+.faq-toggle.w--open .faq-icon-v-line {
+  transform: rotate(90deg);
+}
+
+.faq-toggle:hover .faq-icon {
+  background-color: #eeeeee;
+}
+
+[data-origin] {
+  will-change: transform;
+}
+
+.nav-button-mask {
+  overflow: hidden !important;
+  position: relative !important;
+  display: block !important;
+  height: auto !important;
+  padding-left: 1.8vw !important;
+  padding-right: 1.8vw !important;
+  box-sizing: content-box !important;
+}
+
+.nav-button-mask .clone-p {
+  position: absolute !important;
+  inset: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.8vw !important;
+  padding-right: 1.8vw !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  box-sizing: content-box !important;
+}
+
+.nav-button-mask .word {
+  overflow: visible !important;
+  display: inline-block !important;
+}
+
+.nav-button,
+.nav-button-secondary {
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+[data-button-hover].is-text-link {
+  overflow: hidden;
+  position: relative;
+}
+
+[data-button-hover].is-text-link .clone-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.nav-link:hover ~ .nav-item-bg {
+  background-color: #dedede !important;
+}
+
+.nav-link.w--current:hover ~ .nav-item-bg {
+  background-color: #ffffff !important;
+}
+
+.nav-link:hover ~ .nav-item-bg.nav-item-dark {
+  background: rgba(94, 94, 94, 0.50) !important;
+}
+
+.nav-link.w--current:hover ~ .nav-item-bg.nav-item-dark {
+  background-color: #ffffff !important;
+}
+
+.nav-link:hover ~ .nav-item-icon {
+  color: #ffffff !important;
+}
+
+.nav-link.w--current:hover ~ .nav-item-icon {
+  color: black !important;
+}
+
+.nav-webflow-bg {
+  backdrop-filter: blur(15px) !important;
+}
+
+.social-link:hover {
+  background-color: #dedede !important;
+}
+
+.social-link.social-dark:hover {
+  background-color: #5E5E5E !important;
+}
+
+.social-link:hover .social-bg-path {
+  color: #ffffff !important;
+}
+
+.social-link:hover .social-path-white {
+  fill: #000 !important;
+}
+
+.popup-close:hover .popup-close-path-1 {
+  transform: rotate(90deg);
+  background-color: white;
+}
+
+.popup-close:hover .popup-close-path-2 {
+  transform: rotate(-90deg);
+  background-color: white;
+} 
+
+.work-card:hover .work-card-arrow-2 {
+  margin: 0%;
+}
+
+.work-card:hover .work-card-arrow {
+  margin-left: 100%;
+}
+
+/* ============================================
+   RESPONSIVE & MOBILE STYLES (SMALL DEVICES)
+   ============================================ */
+@media screen and (max-width: 991px) {
+  #hero.hero {
+    background-attachment: scroll !important;
+  }
+
+  #about.about-section {
+    position: relative;
+    background-attachment: scroll !important;
+    padding-left: clamp(1.07rem, 5.33vw, 2.56rem) !important;
+  }
+
+  #work.work_section {
+    color: var(--white) !important;
+    position: relative;
+    min-height: auto;
+    background-color: #000000 !important;
+    background-attachment: scroll !important;
+  }
+
+  .sevice_section {
+    padding: clamp(3rem, 10vw, 6rem) clamp(1.07rem, 5.33vw, 2.56rem) !important;
+  }
+
+  .cta_section {
+    padding: clamp(3rem, 10vw, 6rem) clamp(1.07rem, 5.33vw, 2.56rem) !important;
+  }
+
+  .testimonial_section {
+    padding: clamp(3rem, 10vw, 6rem) clamp(1.07rem, 5.33vw, 2.56rem) !important;
+  }
+
+  .service-wrap {
+    flex-flow: column !important;
+  }
+
+  .service-card,
+  .service-card.is-first {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #hero.hero {
+    min-height: clamp(45.5rem, 220.7vw + 1.38rem, 105.7rem);
+    padding-bottom: clamp(2.67rem, 13.33vw, 6.39rem);
+    overflow: hidden;
+    background-attachment: scroll !important;
+  }
+
+  #about.about-section {
+    z-index: 200;
+    height: auto;
+    position: relative;
+    margin-top: 0;
+    padding: clamp(7.47rem, 37.33vw, 17.88rem) clamp(1.07rem, 5.33vw, 2.56rem) clamp(4.27rem, 21.33vw, 10.23rem);
+    background-attachment: scroll !important;
+  }
+
+  #work.work_section {
+    color: var(--white) !important;
+    position: relative;
+    min-height: auto !important;
+    background-color: #000000 !important;
+    background-attachment: scroll !important;
+  }
+
+  .profile-img-wrap {
+    display: none !important;
+  }
+
+  .nesh-logo-preload-wrap {
+    display: none !important;
+  }
+
+  .nesh-logo-ghost {
+    opacity: 1 !important;
+    width: 100% !important;
+  }
+
+  .mobile-hero-image-wrap {
+    display: flex !important;
+  }
+
+  .hero-navigation-link,
+  .hero-navigation-sep,
+  .nav-stats-card,
+  .hero-cards-left,
+  .hero-card-3,
+  .hero-cards-wrap,
+  .hero-left-text,
+  .hero-right-text,
+  .hero-buttons-wrap {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .hero-heading {
+    visibility: visible !important;
+  }
+  
+  .swiper-pagination {
+    width: auto !important;
+    display: flex;
+    margin-bottom: 0vw;
+    padding: clamp(0.53rem, 2.67vw, 1.28rem);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    position: relative !important;
+  }
+  
+  .swiper-bullet.is-active {
+    width: clamp(1.92rem, 9.6vw, 4.61rem);
+    background-color: #ffffff;
+  }
+  
+  .capa-card-item:hover .capa-card-arrow {
+    rotate: 0deg;
+  }
+      
+  .faq-toggle:hover .faq-icon {
+    background-color: transparent;
+  }
+
+  /* Services & CTA Mobile Fluid Clamps */
+  .sevice_section {
+    padding: clamp(4.27rem, 21.33vw, 10.23rem) clamp(1.07rem, 5.33vw, 2.56rem) !important;
+    background-attachment: scroll !important;
+  }
+
+  .service-wrap {
+    background-color: #f3f3f3;
+    border-radius: clamp(0.43rem, 2.13vw, 1.02rem);
+    flex-flow: column !important;
+    margin-top: clamp(3.73rem, 18.67vw, 8.96rem);
+    padding: clamp(0.64rem, 3.2vw, 1.53rem);
+    width: 100% !important;
+  }
+
+  .service-card {
+    background-color: #f7f7f7;
+    border-radius: clamp(0.43rem, 2.13vw, 1.02rem);
+    width: 100% !important;
+    padding: clamp(1.01rem, 5.07vw, 2.43rem);
+  }
+
+  .service-card.is-first {
+    text-overflow: clip;
+    border-radius: clamp(0.43rem, 2.13vw, 1.02rem);
+    width: 100% !important;
+    padding: clamp(1.01rem, 5.07vw, 2.43rem);
+  }
+
+  .service-top-content {
+    margin-bottom: clamp(2.13rem, 10.67vw, 5.12rem);
+  }
+
+  .service-card-top-item {
+    grid-column-gap: clamp(0.53rem, 2.67vw, 1.28rem);
+    grid-row-gap: clamp(0.53rem, 2.67vw, 1.28rem);
+    margin-bottom: clamp(1.71rem, 8.53vw, 4.09rem);
+  }
+
+  .service-card-icon {
+    width: clamp(2.24rem, 11.2vw, 5.37rem);
+  }
+
+  .service-card-heading {
+    font-size: clamp(1.17rem, 5.87vw, 2.81rem);
+  }
+
+  .service-price-item {
+    grid-column-gap: clamp(0.32rem, 1.6vw, 0.77rem);
+    grid-row-gap: clamp(0.32rem, 1.6vw, 0.77rem);
+    margin-bottom: clamp(1.28rem, 6.4vw, 3.07rem);
+    font-size: clamp(1.28rem, 6.4vw, 3.07rem);
+  }
+
+  .services-hours-text {
+    font-size: clamp(0.75rem, 3.73vw, 1.79rem);
+  }
+
+  .service-list {
+    grid-column-gap: clamp(0.43rem, 2.13vw, 1.02rem);
+    grid-row-gap: clamp(0.43rem, 2.13vw, 1.02rem);
+    margin-top: clamp(2.13rem, 10.67vw, 5.12rem);
+  }
+
+  .service-list-item {
+    grid-column-gap: clamp(0.53rem, 2.67vw, 1.28rem);
+    grid-row-gap: clamp(0.53rem, 2.67vw, 1.28rem);
+    font-size: clamp(0.85rem, 4.27vw, 2.05rem);
+  }
+
+  .service-list-bullet-icon {
+    border-width: clamp(0.11rem, 0.53vw, 0.26rem);
+    width: clamp(0.69rem, 3.47vw, 1.66rem);
+    height: clamp(0.69rem, 3.47vw, 1.66rem);
+  }
+
+  .service-bottom-content {
+    grid-column-gap: clamp(0.21rem, 1.07vw, 0.51rem);
+    grid-row-gap: clamp(0.21rem, 1.07vw, 0.51rem);
+    font-size: clamp(0.85rem, 4.27vw, 2.05rem);
+  }
+
+  .services-tooltip-icon {
+    width: clamp(1.17rem, 5.87vw, 2.81rem);
+    margin-top: 0.5%;
+  }
+
+  .cta_section {
+    padding: clamp(4.27rem, 21.33vw, 10.23rem) clamp(1.07rem, 5.33vw, 2.56rem) !important;
+    background-attachment: scroll !important;
+  }
+
+  .cta_heading {
+    margin-bottom: clamp(2.13rem, 10.67vw, 5.12rem);
+    font-size: clamp(2.24rem, 11.2vw, 5.37rem);
+  }
+
+  .cta-wrap {
+    grid-column-gap: clamp(0.75rem, 3.73vw, 1.79rem);
+    grid-row-gap: clamp(0.75rem, 3.73vw, 1.79rem);
+    margin-top: clamp(2.13rem, 10.67vw, 5.12rem);
+  }
+
+  .cta_img {
+    width: clamp(2.4rem, 12vw, 5.75rem);
+  }
+
+  .cta-chat {
+    border-radius: clamp(0.64rem, 3.2vw, 1.53rem);
+    margin-bottom: clamp(0.53rem, 2.67vw, 1.28rem);
+    padding: clamp(0.64rem, 3.2vw, 1.53rem) clamp(1.07rem, 5.33vw, 2.56rem);
+    line-height: 1;
+  }
+
+  .cta-button {
+    border-radius: clamp(0.64rem, 3.2vw, 1.53rem);
+    padding: clamp(0.96rem, 4vw, 2.3rem) clamp(1.07rem, 5.33vw, 2.56rem);
+    line-height: 1;
+  }
+
+  .cta-chat-typing-wrap {
+    grid-column-gap: clamp(0.32rem, 1.6vw, 0.77rem);
+    grid-row-gap: clamp(0.32rem, 1.6vw, 0.77rem);
+  }
+
+  .typing-dots {
+    width: clamp(0.32rem, 1.6vw, 0.77rem);
+    height: clamp(0.32rem, 1.6vw, 0.77rem);
+  }
+
+  /* Testimonial Mobile Clamps */
+  .testimonial_section {
+    padding: clamp(4.27rem, 21.33vw, 10.23rem) clamp(1.07rem, 5.33vw, 2.56rem) !important;
+  }
+
+  .swiper-main-wrap {
+    grid-column-gap: clamp(1.28rem, 6.4vw, 3.07rem);
+    grid-row-gap: clamp(1.28rem, 6.4vw, 3.07rem);
+    margin-top: clamp(2.56rem, 12.8vw, 6.14rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100% !important;
+  }
+
+  .swiper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .swiper-pagination {
+    order: 9999;
+    margin-top: clamp(1.2rem, 4vw, 2rem) !important;
+    margin-bottom: 0;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+  }
+
+  .swiper-card {
+    border-radius: clamp(0.64rem, 3.2vw, 1.53rem) !important;
+    padding: clamp(1.07rem, 5.33vw, 2.56rem) !important;
+    font-size: clamp(0.75rem, 3.73vw, 1.79rem) !important;
+  }
+
+  .swiper-card-top {
+    margin-bottom: clamp(1.28rem, 6.4vw, 3.07rem) !important;
+  }
+
+  .swiper-heading {
+    font-size: clamp(1.07rem, 5.33vw, 2.56rem) !important;
+  }
+
+  .swiper-quote-icon {
+    width: clamp(1.6rem, 8vw, 3.84rem) !important;
+  }
+
+  .swiper-card-bottom {
+    grid-column-gap: clamp(0.75rem, 3.73vw, 1.79rem) !important;
+    grid-row-gap: clamp(0.75rem, 3.73vw, 1.79rem) !important;
+    margin-top: clamp(1.28rem, 6.4vw, 3.07rem) !important;
+  }
+
+  .client-img {
+    width: clamp(2.67rem, 13.33vw, 6.39rem) !important;
+    height: clamp(2.67rem, 13.33vw, 6.39rem) !important;
+  }
+
+  .client-info {
+    font-size: clamp(0.75rem, 3.73vw, 1.79rem) !important;
+  }
+
+  .client-text-small,
+  .client-text-link {
+    font-size: clamp(0.75rem, 3.73vw, 1.79rem) !important;
+  }
+
+  /* Work Top Layout Mobile */
+  .work-top-layout {
+    grid-template-columns: 1fr !important;
+    grid-column-gap: clamp(0.96rem, 4.8vw, 2.3rem) !important;
+    grid-row-gap: clamp(0.96rem, 4.8vw, 2.3rem) !important;
+    margin-bottom: clamp(3.73rem, 18.67vw, 8.96rem) !important;
+    padding-left: clamp(1.07rem, 5.33vw, 2.56rem) !important;
+    padding-right: clamp(1.07rem, 5.33vw, 2.56rem) !important;
+    width: 100% !important;
+  }
+
+  .work-top-text {
+    max-width: 100% !important;
+    justify-self: start !important;
+  }
+}
+
+/* ============================================
+   SELECTED WORK SECTION (FULL BLACK + DARK THEME)
+   ============================================ */
+.work_section {
+  background-color: #000000 !important;
+  color: var(--white) !important;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .work_section {
+    min-height: 400vh;
+  }
+}
+
+.work-sticky {
+  background-image: linear-gradient(#000, #222 44%);
+}
+
+.work-top-layout {
+  grid-column-gap: 1.11vw;
+  grid-row-gap: 1.11vw;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  margin-bottom: 4.17vw;
+  display: grid;
+  color: var(--white);
+  pointer-events: auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.work-top-text {
+  max-width: clamp(18rem, 26.6vw, 30rem);
+  justify-self: end;
+  align-self: end;
+}
+
+/* ============================================
+   SERVICES & CTA BASE STYLING
+   ============================================ */
+.sevice_section {
+  pointer-events: auto;
+  padding: 2vw 1.39vw 10vw 21vw;
+  box-sizing: border-box;
+}
+
+.cta_section {
+  pointer-events: auto;
+  padding: 10vw 1.39vw 10vw 21vw;
+  box-sizing: border-box;
+}
+
+@keyframes typingBounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.typing-dots {
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dots:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dots:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.typing-dots:nth-child(3) {
+  animation-delay: 0s;
+}
+
+/* ============================================
+   EQUAL WIDTH SERVICE CARDS
+   ============================================ */
+.service-wrap {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 1.67vw !important;
+  background-color: #f3f3f3 !important;
+  border-radius: 0.69vw !important;
+  padding: 1.1vw !important;
+  margin-top: 4.17vw !important;
+}
+
+.service-card,
+.service-card.is-first {
+  flex: 1 1 0px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  background-color: #f7f7f7 !important;
+  border-radius: 0.56vw !important;
+  padding: 1.8vw 1.8vw !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.service-card.is-first {
+  background-color: #e0e0e0 !important;
+}
+
+/* ============================================
+   TESTIMONIAL SECTION BASE STYLING
+   ============================================ */
+.testimonial_section {
+  pointer-events: auto;
+  width: 100%;
+  padding-top: 10vw;
+  padding-left: 21vw;
+  padding-right: 1.39vw;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: block;
+}
+
+.swiper-main-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 1.67vw;
+  overflow: visible;
+}
+
+.swiper {
+  width: 453px !important;
+  max-width: 453px !important;
+  align-self: flex-start !important;
+  overflow: visible !important;
+}
+
+.swiper-slide {
+  width: 453px !important;
+  flex: 0 0 453px !important;
+  margin-right: 14px !important;
+  display: flex !important;
+}
+
+.swiper-card {
+  grid-column-gap: 3.47vw;
+  grid-row-gap: 3.47vw;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  background-color: #ffffffcc;
+  border: 1px solid #fff3;
+  border-radius: 0.83vw;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 405px;
+  height: 100%;
+  padding: 1.67vw;
+  display: flex;
+  box-sizing: border-box;
+  width: 100% !important;
+}
+
+.swiper-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.39vw;
+}
+
+.swiper-heading {
+  font-family: "Tr 3 A", Arial, sans-serif;
+  font-size: clamp(1.25rem, 1.8vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.swiper-quote-icon {
+  width: clamp(1.5rem, 2.08vw, 2.5rem);
+  flex-shrink: 0;
+}
+
+.swiper-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.83vw;
+  margin-top: 2.22vw;
+}
+
+.client-img {
+  width: 3.47vw;
+  height: 3.47vw;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-text-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   12. FOOTER & FAQ STYLING
+   ============================================ */
+.footer {
+  -webkit-text-size-adjust: 100%;
+  color: #000;
+  font-family: Ppneuemontreal Book, Arial, sans-serif;
+  font-size: clamp(0.75rem, 1.18vw, 1.5rem);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  display: block;
+  padding: 15vw 1.39vw 2vw 21vw;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.footer-logo {
+  aspect-ratio: 3.85;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-logo-icon {
+  aspect-ratio: 3.8;
+  opacity: 1;
+  width: 100%;
+  height: auto;
+  position: static;
+  display: block;
+}
+
+.faq-column-main {
+  padding-top: 5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.83vw;
+  grid-row-gap: 0.83vw;
+  width: 100%;
+  margin-top: 5vw;
+}
+
+.faq-colum-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.83vw;
+}
+
+.faq {
+  background-color: #ffffffcc;
+  border-radius: 0.69vw;
+  width: 100%;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.faq-toggle {
+  cursor: pointer;
+  letter-spacing: -0.01vw;
+  white-space: normal;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.25vw 1.67vw;
+  font-family: "Tr 3 A", Arial, sans-serif;
+  font-size: clamp(0.75rem, 1.32vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.4;
+  display: flex;
+  user-select: none;
+}
+
+.faq-toggle:hover {
+  opacity: 0.92;
+}
+
+.faq-heading {
+  width: 89%;
+  font-size: clamp(0.75rem, 1.32vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.faq-icon {
+  background-color: #ffffff00;
+  border-radius: 0.42vw;
+  justify-content: center;
+  align-items: center;
+  width: 2.22vw;
+  height: 2.22vw;
+  min-width: 28px;
+  min-height: 28px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.faq-icon-item {
+  width: 1.11vw;
+  min-width: 14px;
+}
+
+.faq-answer {
+  padding: 0.42vw 1.67vw 1.25vw;
+  line-height: 1.6;
+}
+
+.faq-answer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    padding: 15vw clamp(1.07rem, 5.33vw, 2.56rem) 15vw;
+  }
+  .faq-column {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.75rem, 3.5vw, 1.25rem);
+  }
+  .faq-colum-item {
+    gap: clamp(0.75rem, 3.5vw, 1.25rem);
+  }
+  .faq {
+    border-radius: clamp(0.53rem, 2.66vw, 0.75rem);
+  }
+  .faq-toggle {
+    padding: clamp(0.74rem, 3.73vw, 1.05rem) clamp(1.28rem, 6.4vw, 1.8rem);
+    font-size: clamp(0.91rem, 4.53vw, 2.17rem);
+  }
+  .faq-heading {
+    font-size: clamp(0.91rem, 4.53vw, 2.17rem);
+  }
+  .faq-answer {
+    padding: clamp(0.53rem, 1.33vw, 0.625rem) clamp(1.28rem, 6.4vw, 1.8rem) clamp(0.74rem, 3.73vw, 1.05rem);
+    font-size: clamp(0.85rem, 4.27vw, 1.2rem);
+  }
+}
+
+
+

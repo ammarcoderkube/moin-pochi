@@ -1,0 +1,279 @@
+.aboutSection {
+  position: relative;
+  width: 100%;
+  padding: 6vw 4vw 8vw 4vw;
+  background-color: var(--bg-heynesh);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.column {
+  max-width: 600px;
+  margin-bottom: 4vw;
+}
+
+.label {
+  display: inline-block;
+  font-family: var(--tra);
+  font-size: clamp(0.75rem, 0.9vw, 1.05rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3vw 0.8vw;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  margin-bottom: 1.2vw;
+  font-weight: 600;
+}
+
+.heading {
+  font-family: var(--tra);
+  font-size: clamp(2rem, 3.8vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2vw;
+}
+
+.description {
+  font-family: var(--font-pp);
+  font-size: clamp(1rem, 1.3vw, 1.45rem);
+  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.5;
+}
+
+/* Timeline Cards Container */
+.aboutWrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5vw;
+  margin-top: 3vw;
+}
+
+.aboutCard {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 0.8vw;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  z-index: 5;
+}
+
+.aboutCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(255, 255, 35, 0.6);
+}
+
+.aboutCardYear {
+  font-family: var(--tra);
+  font-size: clamp(2.2rem, 3.5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--yellow);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1vw;
+}
+
+.aboutCardHeading {
+  font-family: var(--tra);
+  font-size: clamp(1.2rem, 1.6vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.8vw;
+  color: #000;
+}
+
+.cardText {
+  font-family: var(--font-pp);
+  font-size: clamp(0.85rem, 1vw, 1.15rem);
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.5;
+  margin-bottom: 1.5vw;
+}
+
+.cardBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  padding-top: 1vw;
+  margin-top: auto;
+}
+
+.cardBottomLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+}
+
+.avatarStack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  object-fit: cover;
+  margin-right: -8px;
+}
+
+.tagText {
+  font-family: var(--tra);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  margin-left: 10px;
+}
+
+.readMoreBtn {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.4vw;
+  padding: 0.4vw 0.8vw;
+  font-family: var(--tra);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+.readMoreBtn:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  transform: translateY(-2px);
+}
+
+/* Modal Popup */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: #fff;
+  border-radius: 1vw;
+  padding: 2.5vw;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  animation: scaleUp 0.25s ease;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5vw;
+}
+
+.modalYear {
+  font-family: var(--tra);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.closeButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.closeButton:hover {
+  background: var(--yellow);
+  transform: rotate(90deg);
+}
+
+.modalImages {
+  display: flex;
+  gap: 1vw;
+  margin-bottom: 1.5vw;
+}
+
+.modalImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 0.6vw;
+  object-fit: cover;
+}
+
+.modalHeading {
+  font-family: var(--tra);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1vw;
+  line-height: 1.2;
+}
+
+.modalBody {
+  font-family: var(--font-pp);
+  font-size: 1.05rem;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 12vw 5vw;
+  }
+  .aboutWrap {
+    grid-template-columns: 1fr;
+  }
+  .aboutCard {
+    min-height: auto;
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+}

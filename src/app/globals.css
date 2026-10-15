@@ -1,0 +1,400 @@
+@import "./fonts.css";
+@import "./webflow.css";
+@import "./custom.css";
+
+/* Ensure default smooth interactions */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+/* ==========================================================================
+   MINIMALIST MONOCHROME + ELECTRIC COBALT LIGHT THEME
+   - Primary Surface: Clean Architectural White (#F8F9FA / #FFFFFF)
+   - Typography: Obsidian Black (#09090B) & Refined Charcoal (#3F3F46)
+   - Signature Third Color: Electric Cobalt Blue (#0055FF)
+   - Background Watermark: Architectural Sculpture (#D0D4DC)
+   ========================================================================== */
+
+:root {
+  --bg-primary: #f8f9fa;
+  --bg-surface: #ffffff;
+  --text-primary: #09090b;
+  --text-secondary: #3f3f46;
+  --text-muted: #71717a;
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+
+  /* Signature Third Color: Electric Cobalt */
+  --accent: #0055ff;
+  --accent-glow: rgba(0, 85, 255, 0.25);
+  --accent-light: rgba(0, 85, 255, 0.08);
+  --yellow: var(--accent);
+
+  /* Architectural Watermark for giant hero MOIN typography */
+  --hero-watermark: #d0d4dc;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--text-primary);
+  color: #ffffff;
+}
+
+/* 1. GIANT HERO "MOIN" WATERMARK & Z-INDEX LAYERING */
+.navigation {
+  z-index: auto !important;
+}
+
+.is-scrolled .navigation {
+  z-index: 100 !important;
+}
+
+.hero {
+  z-index: auto !important;
+}
+
+.profile-img-wrap {
+  z-index: 22 !important;
+  pointer-events: none !important;
+}
+
+.hero-profile-img {
+  pointer-events: none !important;
+}
+
+.nav-top-layout {
+  z-index: 5 !important;
+}
+
+.nesh-logo-wrap,
+.nesh-logo-preload {
+  z-index: 5 !important;
+}
+
+/* Eliminate the duplicate behind gray ghost watermark */
+.nesh-logo-ghost,
+.nesh-logo-ghost-wrap,
+.nesh-logo-ghost-wrap svg,
+.nesh-copyright-icon-ghost {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Hide sliding preloader logo so gray MOIN stays from the beginning on load */
+.nesh-logo-preload-wrap {
+  display: none !important;
+}
+
+/* Single primary watermark in clean architectural gray */
+.nav-logo {
+  z-index: 5 !important;
+  background-color: transparent;
+  color: var(--hero-watermark, #d8dbe2);
+  border-radius: 0.6vw !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Watermark and animated logo must ALWAYS have a transparent background */
+.nesh-logo,
+.nesh-logo-wrap,
+.nesh-logo-ghost,
+.nesh-logo-ghost-wrap,
+.nesh-logo-svg {
+  z-index: 5 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.nesh-logo-svg,
+.nesh-copyright-icon {
+  color: var(--hero-watermark, #d8dbe2);
+  transition: color 0.4s ease;
+}
+
+/* Only the small sidebar badge turns dark obsidian once docked/past hero */
+.is-scrolled .nav-logo {
+  background-color: var(--text-primary) !important;
+  color: #ffffff !important;
+}
+
+.is-scrolled .nesh-logo-svg,
+.is-scrolled .nesh-copyright-icon {
+  color: #ffffff !important;
+}
+
+.hero-container {
+  z-index: 30 !important;
+}
+
+.hero-cards-wrap {
+  z-index: 30 !important;
+  pointer-events: none !important;
+}
+
+/* 2. FROSTED GLASS CARDS (Hero Cards 1, 2, 3) */
+.hero-card-1,
+.hero-card-2,
+.hero-card-2-bg,
+.experience-bg,
+.hero-card-3,
+.nav-webflow-bg,
+.nav-experience-bg {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid var(--border-light) !important;
+  border-radius: 0.8vw !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  color: var(--text-primary) !important;
+}
+
+.hero-card-1 {
+  overflow: hidden !important;
+}
+
+/* 3. CARD ICONS & ACCENTS (Electric Cobalt #0055FF) */
+.hero-webflow-icon,
+.nav-webflow-icon,
+.hero-webflow-icon-wrap,
+.hero-card-3-icon {
+  color: var(--accent) !important;
+}
+
+.experience-number,
+.nav-experience-numb {
+  color: var(--accent) !important;
+  fill: var(--accent) !important;
+}
+
+/* 4. CARD TEXT (Obsidian Black & Deep Charcoal) */
+.hero-webflow-projects-text,
+.nav-webflow-text,
+.experience-text,
+.nav-experience-text,
+.hero-card-3 p {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* 5. HERO BUTTONS (Center Bottom) */
+.hero-cta-button {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--accent) !important;
+  box-shadow: 0 4px 18px var(--accent-glow) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  z-index: 31 !important;
+}
+
+.hero-cta-button .button-text {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.hero-cta-button:hover {
+  background-color: #0044d6 !important;
+  border-color: #0044d6 !important;
+  box-shadow: 0 8px 25px var(--accent-glow) !important;
+  transform: translateY(-2px);
+}
+
+.hero-button {
+  background-color: #ffffff !important;
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  z-index: 31 !important;
+}
+
+.hero-button .button-text {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.hero-button:hover {
+  background-color: #f4f4f5 !important;
+  border-color: var(--text-primary) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-2px);
+}
+
+/* 6. TOP NAVIGATION BAR */
+.hero-navigation-link {
+  color: var(--text-primary) !important;
+  transition: color 0.2s ease;
+}
+
+.hero-navigation-link:hover {
+  color: var(--accent) !important;
+}
+
+.hero-navigation-sep {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 7. STICKY SIDEBAR NAVIGATION */
+.nav-top-bg,
+.nav-stats-bg,
+.nav-menu-bg,
+.nav-comapny-wrap,
+.nav-email-wrap {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.nav-logo {
+  background-color: transparent;
+  color: var(--hero-watermark, #d8dbe2);
+  border-radius: 0.6vw !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.is-scrolled .nav-logo {
+  background-color: var(--text-primary) !important;
+  color: #ffffff !important;
+}
+
+.nav-button-wrap {
+  z-index: 30 !important;
+}
+
+.nav-button {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px var(--accent-glow) !important;
+  transition: all 0.3s ease !important;
+  z-index: 31 !important;
+}
+
+.nav-button .button-text {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.nav-button:hover {
+  background-color: #0044d6 !important;
+  box-shadow: 0 6px 24px var(--accent-glow) !important;
+  transform: translateY(-1px);
+}
+
+.nav-button-secondary {
+  background-color: #ffffff !important;
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.3s ease !important;
+  z-index: 31 !important;
+}
+
+.nav-button-secondary .button-text {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.nav-button-secondary:hover {
+  background-color: #f4f4f5 !important;
+  border-color: var(--text-primary) !important;
+  transform: translateY(-1px);
+}
+
+.nav-menu-item {
+  color: var(--text-secondary) !important;
+}
+
+.nav-menu-item:hover,
+.nav-menu-item.is-current {
+  color: var(--text-primary) !important;
+}
+
+.nav-item-bg {
+  background: rgba(0, 85, 255, 0.08) !important;
+  border: 1px solid rgba(0, 85, 255, 0.2) !important;
+}
+
+.nav-item-icon {
+  color: var(--text-primary) !important;
+}
+
+.nav-email-item {
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-light) !important;
+  color: var(--text-primary) !important;
+}
+
+.nav-email-item:hover {
+  background-color: #f4f4f5 !important;
+}
+
+.social-link {
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-light) !important;
+  color: var(--text-primary) !important;
+}
+
+.social-link:hover {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+/* 8. ABOUT, WORK & SERVICES SECTIONS */
+.about-card,
+.swiper-card {
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+}
+
+.about-card-year {
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+}
+
+.about-card-button:hover {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+.service-card-icon rect,
+.swiper-quote-icon rect {
+  fill: var(--text-primary) !important;
+}
+
+.service-card-icon path,
+.swiper-quote-icon path {
+  fill: #ffffff !important;
+}
+
+.hero-left-text,
+.hero-right-text {
+  color: var(--text-secondary) !important;
+}
+
+/* 9. ACCESSIBILITY & FOCUS */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Hide the stationary hero watermark while retaining logo animation measurements. */
+.hero .nesh-logo-ghost-wrap {
+  visibility: hidden !important;
+}
