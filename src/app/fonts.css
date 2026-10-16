@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Ppneuemontreal';
+  src: url('https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/691d8a7b11b33d4b469b6f1c_ppneuemontreal-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppneuemontreal';
+  src: url('https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6942a13115cd4b3a65a5972f_ppneuemontreal-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppneuemontreal Book';
+  src: url('https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/691d8a7bc4e9f35b184ed616_ppneuemontreal-book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tr 3 A';
+  src: url('https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/691d8ab1156537b9520e5061_tr3a-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tr 3 A';
+  src: url('https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/691d8ab15c6a560ca0833ae1_tr3a-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tr 3 A';
+  src: url('https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/691d8ab14cbd4a1cf9811e7a_tr3a-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

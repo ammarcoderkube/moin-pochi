@@ -1,0 +1,292 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.2vw 2vw;
+  pointer-events: none;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  width: 100%;
+  max-width: 96vw;
+  margin: 0 auto;
+}
+
+.navTopLayout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navLeftGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.35vw;
+  background-color: var(--yellow);
+  color: #000;
+  padding: 0.5vw 0.9vw;
+  border-radius: 0.5vw;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.navLogo:hover {
+  transform: scale(1.03);
+}
+
+.navLogoSvg {
+  width: 4.8vw;
+  min-width: 55px;
+  height: auto;
+}
+
+.navCopyrightIcon {
+  width: 0.6vw;
+  min-width: 8px;
+  height: auto;
+}
+
+.socialWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  pointer-events: auto;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2vw;
+  min-width: 32px;
+  height: 2.2vw;
+  min-height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  color: #000;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.socialLink:hover {
+  background-color: var(--yellow);
+  transform: translateY(-2px);
+}
+
+.socialLink svg {
+  width: 1vw;
+  min-width: 15px;
+  height: 1vw;
+  min-height: 15px;
+}
+
+.navCenterText {
+  font-size: clamp(0.7rem, 0.9vw, 1rem);
+  max-width: 26vw;
+  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.35;
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .navCenterText {
+    display: block;
+  }
+}
+
+.navRightGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  pointer-events: auto;
+}
+
+.navEmailWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 0.5vw 1vw;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.5vw;
+  font-family: var(--tra);
+  font-size: clamp(0.75rem, 0.95vw, 1.1rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.navEmailWrap:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.copyEmailIcon {
+  width: 0.9vw;
+  min-width: 13px;
+  height: 0.9vw;
+  min-height: 13px;
+  opacity: 0.7;
+}
+
+.navButtonWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+}
+
+.navBtnPrimary {
+  background-color: var(--yellow);
+  color: #000;
+  border-radius: 0.5vw;
+  padding: 0.5vw 1.2vw;
+  font-family: var(--tra);
+  font-size: clamp(0.75rem, 0.95vw, 1.1rem);
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.navBtnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.navBtnSecondary {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #000;
+  border-radius: 0.5vw;
+  padding: 0.5vw 1.2vw;
+  font-family: var(--tra);
+  font-size: clamp(0.75rem, 0.95vw, 1.1rem);
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.navBtnSecondary:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Nav Menu Pills */
+.navMenuWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  gap: 0.3vw;
+  background: rgba(213, 207, 190, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.6vw;
+  padding: 0.3vw;
+  overflow-x: auto;
+}
+
+.navMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4vw;
+  padding: 0.4vw 0.9vw;
+  border-radius: 0.4vw;
+  font-family: var(--tra);
+  font-size: clamp(0.7rem, 0.88vw, 1rem);
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #222;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navMenuItem:hover {
+  background-color: rgba(201, 200, 186, 0.8);
+}
+
+.navMenuItemActive {
+  background-color: var(--yellow) !important;
+  color: #000 !important;
+  font-weight: 600;
+}
+
+.navMenuItem svg {
+  width: 0.9vw;
+  min-width: 14px;
+  height: 0.9vw;
+  min-height: 14px;
+}
+
+/* Ticker Marquee */
+.navCompanyTicker {
+  display: none;
+  align-items: center;
+  overflow: hidden;
+  max-width: 32vw;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+@media (min-width: 1024px) {
+  .navCompanyTicker {
+    display: flex;
+  }
+}
+
+.tickerTrack {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  animation: marquee-move 20s linear infinite;
+  white-space: nowrap;
+}
+
+.tickerTrack:hover {
+  animation-play-state: paused;
+}
+
+.tickerTrack svg,
+.tickerTrack img {
+  height: 14px;
+  width: auto;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.tickerTrack svg:hover,
+.tickerTrack img:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    padding: 3vw 4vw;
+  }
+  .socialWrap {
+    display: none;
+  }
+  .navEmailWrap {
+    display: none;
+  }
+  .navMenuWrap {
+    display: none;
+  }
+}
